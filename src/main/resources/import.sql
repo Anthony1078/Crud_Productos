@@ -1,0 +1,10 @@
+INSERT INTO producto (nombre, precio) VALUES ('Producto 1', 19.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 2', 29.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 3', 39.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 4', 49.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 5', 59.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 6', 69.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 7', 79.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 8', 89.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 9', 99.99);
+INSERT INTO producto (nombre, precio) VALUES ('Producto 10', 109.99);
