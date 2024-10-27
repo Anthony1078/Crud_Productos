@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy to Artifactory') {
             steps {
 
-            sh 'mvn clean deploy -f pom.xml'
+            //sh 'mvn clean deploy -f pom.xml'
 
 //                 script {
 //                     def artifactory = Artifactory.server('Artifactory')
