@@ -8,12 +8,12 @@ pipeline {
 
     stages {
 
-//         stage('Find Maven') {
-//             steps {
-//                 sh 'echo $PATH'
-//                 sh 'which mvn || echo "Maven not found in PATH"'
-//             }
-//         }
+        stage('Find Maven') {
+            steps {
+                sh 'echo $PATH'
+                sh 'which mvn || echo "Maven not found in PATH"'
+            }
+        }
 
         stage('Checkout') {
             steps {
