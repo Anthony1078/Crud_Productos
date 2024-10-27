@@ -47,16 +47,25 @@ pipeline {
 
         stage('Deploy to Artifactory') {
             steps {
-                script {
-                    def artifactory = Artifactory.server('Artifactory')
-                    def buildInfo = Artifactory.newBuildInfo()
-                    def rtMaven = Artifactory.newMavenBuild()
-                    rtMaven.tool = 'Maven'
-                    rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
-                    rtMaven.resolver server: artifactory, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
-                    buildInfo = rtMaven.run pom: 'pom.xml', goals: 'deploy'
-                    artifactory.publishBuildInfo buildInfo
-                }
+//                 script {
+//                     def artifactory = Artifactory.server('Artifactory')
+//                     def buildInfo = Artifactory.newBuildInfo()
+//                     def rtMaven = Artifactory.newMavenBuild()
+//                     rtMaven.tool = 'Maven'
+//                     rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
+//                     rtMaven.resolver server: artifactory, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
+//                     buildInfo = rtMaven.run pom: 'pom.xml', goals: 'deploy'
+//                     artifactory.publishBuildInfo buildInfo
+//                 }
+
+            script {
+                def artifactory = Artifactory.server('Artifactory')
+                def rtMaven = Artifactory.newMavenBuild()
+                rtMaven.tool = 'Maven'  // Asegúrate de que "Maven" esté correctamente configurado en Jenkins
+                rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
+                rtMaven.run pom: 'pom.xml', goals: 'deploy'
+            }
+
             }
         }
 
