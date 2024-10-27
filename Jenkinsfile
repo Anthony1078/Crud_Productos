@@ -61,13 +61,13 @@ pipeline {
 //                     artifactory.publishBuildInfo buildInfo
 //                 }
 
-            script {
-                def artifactory = Artifactory.server('Artifactory')
-                def rtMaven = Artifactory.newMavenBuild()
-                rtMaven.tool = 'Maven'
-                rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
-                rtMaven.run pom: 'pom.xml', goals: 'deploy'
-            }
+//             script {
+//                 def artifactory = Artifactory.server('Artifactory')
+//                 def rtMaven = Artifactory.newMavenBuild()
+//                 rtMaven.tool = 'Maven'
+//                 rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
+//                 rtMaven.run pom: 'pom.xml', goals: 'deploy'
+//             }
 
             }
         }
