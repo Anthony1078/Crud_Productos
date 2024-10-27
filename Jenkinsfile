@@ -7,6 +7,15 @@ pipeline {
     }
 
     stages {
+
+        stage('Find Maven') {
+            steps {
+                // Intenta imprimir la ruta de Maven si está en el PATH
+                sh 'echo $PATH'
+                sh 'which mvn || echo "Maven not found in PATH"'
+            }
+        }
+
         stage('Checkout') {
             steps {
                 checkout scm
