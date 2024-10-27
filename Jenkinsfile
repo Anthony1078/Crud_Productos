@@ -5,6 +5,11 @@ pipeline {
 //         MAVEN_HOME = '/usr/share/maven'
 //     }
 
+    environment {
+        MAVEN_HOME = '/usr/share/maven'
+        MAVEN_OPTS = '-Dmaven.multiModuleProjectDirectory=$WORKSPACE'
+    }
+
     tools {
         maven 'Maven'
         jdk 'Java-11'
