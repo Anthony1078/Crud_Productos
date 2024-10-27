@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+//     environment {
+//         MAVEN_HOME = '/usr/share/maven'
+//     }
+
     tools {
         maven 'Maven'
         jdk 'Java-11'
@@ -23,6 +27,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'mvn --version'
                 sh 'mvn clean package'
             }
         }
