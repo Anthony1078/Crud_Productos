@@ -33,7 +33,7 @@ pipeline {
                     def artifactory = Artifactory.server('Artifactory')
                     def buildInfo = Artifactory.newBuildInfo()
                     def rtMaven = Artifactory.newMavenBuild()
-                    rtMaven.tool = 'Maven-3.6.3'
+                    rtMaven.tool = 'Maven'
                     rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
                     rtMaven.resolver server: artifactory, releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot'
                     buildInfo = rtMaven.run pom: 'pom.xml', goals: 'deploy'
