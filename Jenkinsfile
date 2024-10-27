@@ -47,6 +47,9 @@ pipeline {
 
         stage('Deploy to Artifactory') {
             steps {
+
+            sh 'mvn clean deploy -f pom.xml'
+
 //                 script {
 //                     def artifactory = Artifactory.server('Artifactory')
 //                     def buildInfo = Artifactory.newBuildInfo()
@@ -61,7 +64,7 @@ pipeline {
             script {
                 def artifactory = Artifactory.server('Artifactory')
                 def rtMaven = Artifactory.newMavenBuild()
-                rtMaven.tool = 'Maven'  // Asegúrate de que "Maven" esté correctamente configurado en Jenkins
+                rtMaven.tool = 'Maven'
                 rtMaven.deployer releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: artifactory
                 rtMaven.run pom: 'pom.xml', goals: 'deploy'
             }
